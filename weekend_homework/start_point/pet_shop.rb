@@ -40,15 +40,16 @@ matching_breeds = []
   return matching_breeds
 end
 
-def find_pet_by_name(pet_shop, name)
+def find_pet_by_name(pet_shop, pet_name)
 
-  for pets in @pet_shop[:pets]
-    if pets[:name] == name
-      matching_name = pets
-
-    end
-  end
-  return matching_name
+  # for pets in @pet_shop[:pets]
+  #   if pets[:name] == name
+  #     matching_name = pets
+  #
+  #   end
+  # end
+  matching_pet = pet_shop[:pets].find { |pet| pet[:name] == pet_name }
+  return matching_pet
 end
 
  def remove_pet_by_name(pet_shop, pet_name)
