@@ -39,3 +39,14 @@ matching_breeds = []
   end
   return matching_breeds
 end
+
+def find_pet_by_name(pet_shop, name)
+
+  for pets in @pet_shop[:pets]
+    if pets[:name] == name
+      matching_name = pets
+
+    end
+  end
+  return matching_name
+end
