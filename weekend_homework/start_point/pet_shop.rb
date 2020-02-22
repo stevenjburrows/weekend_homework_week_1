@@ -30,13 +30,14 @@ def stock_count(pet_shop)
 end
 
 def pets_by_breed(pet_shop, breed_type)
-matching_breeds = []
-  for pets in @pet_shop[:pets]
-    if pets[:breed] == breed_type
-      matching_breeds.push(pets[:name])
-
-    end
-  end
+# matching_breeds = []
+#   for pets in @pet_shop[:pets]
+#     if pets[:breed] == breed_type
+#       matching_breeds.push(pets[:name])
+#
+#     end
+#   end
+    matching_breeds = pet_shop[:pets].select { |pet| pet[:breed] == breed_type }
   return matching_breeds
 end
 
