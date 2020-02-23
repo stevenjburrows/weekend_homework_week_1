@@ -95,12 +95,13 @@ def sell_pet_to_customer(pet_shop, pet, customer)
   #add money to pet shop
   #remove money from customer
   if pet.nil? == false
-    remove_pet_by_name(pet_shop, pet)
-    add_pet_to_customer(customer, pet)
-    pet_cost = pet[:price]
-    remove_customer_cash(customer, pet_cost)
-    add_or_remove_cash(pet_shop, pet_cost)
-    increase_pets_sold(pet_shop, customer[:pets].length)
-
+    if customer_can_afford_pet(customer, pet) == true
+      remove_pet_by_name(pet_shop, pet)
+      add_pet_to_customer(customer, pet)
+      pet_cost = pet[:price]
+      remove_customer_cash(customer, pet_cost)
+      add_or_remove_cash(pet_shop, pet_cost)
+      increase_pets_sold(pet_shop, customer[:pets].length)
+    end
   end
 end
